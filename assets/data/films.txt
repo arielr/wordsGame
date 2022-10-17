@@ -1,0 +1,380 @@
+10 Things I Hate About You
+12 Angry Men
+12 Monkeys
+12 Years a Slave
+127 Hours
+1917
+2001: A Space Odyssey
+2012
+300
+A Beautiful Mind
+A Clockwork Orange
+A.I. Artificial Intelligence
+Ace Ventura: Pet Detective
+Aladdin
+Alexander
+Alien
+All About Eve
+All Quiet on the Western Front
+Amadeus
+American Beauty
+American History X
+American Hustle
+American Pie
+American Sniper
+Amélie
+An American in Paris
+Angels & Demons
+Annie Hall
+Ant-Man
+Ant-Man and the Wasp
+Apocalypse Now
+Apocalypto
+Apollo 13
+Aquaman
+Argo
+Armageddon
+Arrival
+As Good as It Gets
+Avengers: Endgame
+Avengers: Infinity War
+Babel
+Back to the Future
+Basic Instinct
+Batman Begins
+Batman Forever
+Batman Returns
+Ben-Hur
+Birdman
+Black Panther
+Black Swan
+Black Widow
+Blade Runner
+Blood Diamond
+Bohemian Rhapsody
+Borat
+Braveheart
+Breakfast at Tiffany's
+Bridge of Spies
+Brokeback Mountain
+Call Me by Your Name
+Captain America: The First Avenger
+Captain Marvel
+Captain Phillips
+Casablanca
+Cast Away
+Catch Me If You Can
+Chariots of Fire
+Charlie and the Chocolate Factory
+Chicago
+Children of Men
+Chinatown
+Cinema Paradiso
+Citizen Kane
+City Lights
+City of God
+Close Encounters of the Third Kind
+Contact
+Contagion
+Corpse Bride
+Crash
+Crouching Tiger, Hidden Dragon
+Dallas Buyers Club
+Dances with Wolves
+Dawn of the Planet of the Apes
+Dead Poets Society
+Deadpool
+Diamonds Are Forever
+Die Another Day
+Die Hard
+District 9
+Django Unchained
+Doctor Strange
+Doctor Zhivago
+Donnie Darko
+Dr. No
+Dr. Strangelove
+Dune
+Dunkirk
+E.T. the Extra-Terrestrial
+Edward Scissorhands
+Eternal Sunshine of the Spotless Mind
+Eternals
+Eyes Wide Shut
+Fantastic Beasts and Where to Find Them
+Fantastic Four
+Fantastic Mr. Fox
+Fargo
+Fight Club
+For a Few Dollars More
+Forrest Gump
+From Russia with Love
+Full Metal Jacket
+Gandhi
+Gangs of New York
+Ghost
+Gladiator
+GoldenEye
+Goldfinger
+Gone Girl
+Gone with the Wind
+Good Bye Lenin!
+Good Will Hunting
+Goodfellas
+Gravity
+Green Book
+Green Lantern
+Groundhog Day
+Guardians of the Galaxy
+Hacksaw Ridge
+Halloween
+Harry Potter and the Philosopher's Stone
+Heat
+Home Alone
+Hotel Rwanda
+Hugo
+I Am Legend
+I, Robot
+Inception
+Independence Day
+Indiana Jones and the Temple of Doom
+Inglourious Basterds
+Interstellar
+Into the Wild
+Iron Man
+It
+It Happened One Night
+It's a Wonderful Life
+Jaws
+Jerry Maguire
+Jojo Rabbit
+Joker
+Jumanji
+Juno
+Jurassic Park
+Jurassic World
+Justice League
+King Kong
+Kingdom of Heaven
+Kingsman: The Secret Service
+Kramer vs. Kramer
+La Dolce Vita
+La La Land
+Lawrence of Arabia
+Licence to Kill
+Life is Beautiful
+Life of Pi
+Lincoln
+Little Miss Sunshine
+Logan
+Lost in Translation
+Love Actually
+Léon: The Professional
+Mamma Mia!
+Mean Girls
+Meet the Parents
+Memento
+Men in Black
+Midnight Cowboy
+Midnight in Paris
+Milk
+Million Dollar Baby
+Minions
+Minority Report
+Mission: Impossible
+Moneyball
+Monty Python and the Holy Grail
+Monty Python’s Life of Brian
+Moonlight
+Moonraker
+Moulin Rouge!
+Mr. & Mrs. Smith
+Mrs. Doubtfire
+Mulholland Drive
+Munich
+Mutiny on the Bounty
+My Fair Lady
+Mystic River
+Night at the Museum
+No Country for Old Men
+No Time to Die
+North by Northwest
+Notting Hill
+Ocean's Eleven
+Octopussy
+Oldboy
+On Her Majesty's Secret Service
+Once Upon a Time in America
+Once Upon a Time in Hollywood
+Once Upon a Time in the West
+One Flew Over the Cuckoo's Nest
+Out of Africa
+Pan's Labyrinth
+Parasite
+Pearl Harbor
+Philadelphia
+Pirates of the Caribbean
+Platoon
+Predator
+Pretty Woman
+Pride & Prejudice
+Prometheus
+Psycho
+Pulp Fiction
+Quantum of Solace
+Raging Bull
+Raiders of the Lost Ark
+Rain Man
+Rambo
+Rashomon
+Ratatouille
+Rear Window
+Requiem for a Dream
+Reservoir Dogs
+Resident Evil
+Robin Hood
+Rocky
+Room
+Saving Private Ryan
+Saw
+Scarface
+Scent of a Woman
+Schindler's List
+Scream
+Seven
+Seven Samurai
+Shakespeare in Love
+Sherlock Holmes
+Shutter Island
+Silver Linings Playbook
+Sin City
+Skyfall
+Sleepless in Seattle
+Sleepy Hollow
+Slumdog Millionaire
+Snatch
+Some Like It Hot
+Spartacus
+Spectre
+Speed
+Spider-Man
+Spotlight
+Star Trek
+Star Wars
+Stargate
+Suicide Squad
+Sunset Boulevard
+Sweeney Todd: The Demon Barber of Fleet Street
+Taken
+Taxi Driver
+Ted
+Tenet
+The Artist
+The Avengers
+The Aviator
+The Big Lebowski
+The Birds
+The Birth of a Nation
+The Blind Side
+The Bourne Identity
+The Bridge on the River Kwai
+The Butterfly Effect
+The Curious Case of Benjamin Button
+The Da Vinci Code
+The Dark Knight
+The Dark Knight Rises
+The Day After Tomorrow
+The Deer Hunter
+The Departed
+The Devil Wears Prada
+The Elephant Man
+The English Patient
+The Exorcist
+The Expendables
+The Fast and the Furious
+The Fifth Element
+The French Connection
+The Godfather
+The Gold Rush
+The Good Dinosaur
+The Good, the Bad and the Ugly
+The Graduate
+The Grand Budapest Hotel
+The Great Dictator
+The Great Gatsby
+The Green Mile
+The Hangover
+The Hateful Eight
+The Help
+The Hobbit
+The Hours
+The Hunger Games
+The Hurt Locker
+The Imitation Game
+The Intouchables
+The Iron Giant
+The King's Speech
+The Last Emperor
+The Last Samurai
+The Lives of Others
+The Lord of the Rings
+The Magnificent Seven
+The Man with the Golden Gun
+The Martian
+The Mask
+The Matrix
+The Mummy
+The Nightmare Before Christmas
+The Notebook
+The Passion of the Christ
+The Pianist
+The Prestige
+The Pursuit of Happyness
+The Revenant
+The Shape of Water
+The Shawshank Redemption
+The Shining
+The Silence of the Lambs
+The Sixth Sense
+The Social Network
+The Sound of Music
+The Spy Who Loved Me
+The Terminal
+The Terminator
+The Theory of Everything
+The Thing
+The Third Man
+The Truman Show
+The Untouchables
+The Usual Suspects
+The Wizard of Oz
+The Wolf of Wall Street
+The World Is Not Enough
+There Will Be Blood
+Thor
+Three Billboards Outside Ebbing, Missouri
+Thunderball
+Titanic
+To Kill a Mockingbird
+Tomorrow Never Dies
+Tootsie
+Top Gun
+Trainspotting
+Transformers
+Troy
+True Grit
+Twilight
+Unforgiven
+V for Vendetta
+Van Helsing
+Vanilla Sky
+Venom
+Vertigo
+War of the Worlds
+Watchmen
+West Side Story
+Whiplash
+Wonder Woman
+World War Z
+X-Men
+You Only Live Twice
