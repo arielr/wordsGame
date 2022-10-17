@@ -32,7 +32,7 @@ class _SettingsScreen extends State<SettingsScreen> {
     widget._wordsRepository
         .getAllCategories()
         .then((newWordsList) => setState(() {
-              item = newWordsList;
+              item = newWordsList.cast<CategoryData>();
             }));
   }
 
