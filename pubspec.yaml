@@ -37,6 +37,7 @@ dependencies:
   csv: ^5.0.1
   shared_preferences: ^2.0.15
   settings_ui: ^2.0.2
+  sliver_tools: ^0.2.8
 
 dev_dependencies:
   flutter_test:

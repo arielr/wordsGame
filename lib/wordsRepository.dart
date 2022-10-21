@@ -59,7 +59,8 @@ class FileWordsRepository extends WordsRepository {
     return rootBundle
         .loadString('assets/data/${resourceName}')
         .then((fileContent) {
-      _map[categoryName] = fileContent.split("\n");
+      _map[categoryName] =
+          fileContent.split("\n").map((w) => w.trim()).toList();
     });
   }
 }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CountdownWidget extends StatefulWidget {
-  final double size = 60;
+  final double size = 130;
   Function onTimeout = () {};
   final Future<SharedPreferences> prefs = SharedPreferences.getInstance();
 
@@ -24,6 +24,7 @@ class _CountdownWidget extends State<CountdownWidget>
   Duration currentTimeout = Duration(seconds: 60);
   Duration originalTimeout = Duration(seconds: 60);
   bool isTimeout = false;
+  StateSetter? _setState = null;
 
   _CountdownWidget() {
     countdownTimer =
@@ -34,8 +35,10 @@ class _CountdownWidget extends State<CountdownWidget>
   void initState() {
     widget.prefs.then((p) {
       int settingsTimeout = p.getInt('_totalTimeInSeconds') ?? 60;
-      currentTimeout = Duration(seconds: settingsTimeout);
-      originalTimeout = Duration(seconds: settingsTimeout);
+      setState(() {
+        currentTimeout = Duration(seconds: settingsTimeout);
+        originalTimeout = Duration(seconds: settingsTimeout);
+      });
     });
     super.initState();
   }
@@ -43,15 +46,19 @@ class _CountdownWidget extends State<CountdownWidget>
   void setCountDown() {
     if (!mounted) return;
     setState(() {
-      final seconds = currentTimeout.inSeconds - 1;
-      if (seconds < 0) {
+      if (currentTimeout.inSeconds <= 0) {
         widget.onTimeout();
         setState(() {
           isTimeout = true;
         });
       }
 
-      currentTimeout = Duration(seconds: seconds);
+      currentTimeout = Duration(seconds: currentTimeout.inSeconds - 1);
+      if (_setState != null) {
+        _setState!(() {
+          currentTimeout = currentTimeout;
+        });
+      }
     });
   }
 
@@ -62,78 +69,49 @@ class _CountdownWidget extends State<CountdownWidget>
     super.dispose();
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => _dialogBuilder(context),
-      child: Container(
-        child: Text(
-          currentTimeout.inSeconds.toString(),
-          style: isTimeout
-              ? Theme.of(context).textTheme.bodyText1?.apply(color: Colors.red)
-              : Theme.of(context).textTheme.bodyText1,
-        ),
-      ),
-    );
-  }
-
   Future<void> _dialogBuilder(BuildContext context) {
     return showDialog<void>(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('ss'),
-          content: Text("Pause time"),
-          actions: <Widget>[
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: Theme.of(context).textTheme.labelLarge,
-              ),
-              child: const Text('Disable'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              style: TextButton.styleFrom(
-                textStyle: Theme.of(context).textTheme.labelLarge,
-              ),
-              child: const Text('Enable'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
+        return SimpleDialog(
+          title: Text(currentTimeout.inSeconds.toString()),
+          children: [
+            StatefulBuilder(
+                builder: (BuildContext context, StateSetter setState) {
+              _setState = setState;
+              return Text(currentTimeout.inSeconds.toString());
+            })
           ],
         );
       },
-    );
+    ).then((value) => _setState = null);
   }
 
-// @override
-  // Widget build(BuildContext context) {
-  //   return SizedBox(
-  //     height: widget.size,
-  //     child: Stack(children: [
-  //       Center(
-  //         child: Container(
-  //           decoration: BoxDecoration(
-  //             shape: BoxShape.circle,
-  //             color: Colors.amber,
-  //           ),
-  //           width: widget.size,
-  //           height: widget.size,
-  //           child: CircularProgressIndicator(
-  //             value: (currentTimeout.inSeconds) / originalTimeout.inSeconds,
-  //             semanticsLabel: 'Circular progress indicator',
-  //           ),
-  //         ),
-  //       ),
-  //       Center(
-  //         child: Text(currentTimeout.inSeconds.toString(),
-  //             style: Theme.of(context).textTheme.headline5?.copyWith(
-  //                 color: Colors.white, backgroundColor: Colors.amber)),
-  //       )
-  //     ]),
-  //   );
-  // }
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: widget.size,
+      child: Stack(children: [
+        Center(
+          child: Container(
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.amber,
+            ),
+            width: widget.size,
+            height: widget.size,
+            child: CircularProgressIndicator(
+              value: (currentTimeout.inSeconds) / originalTimeout.inSeconds,
+              semanticsLabel: 'Circular progress indicator',
+            ),
+          ),
+        ),
+        Center(
+          child: Text(currentTimeout.inSeconds.toString(),
+              style: Theme.of(context).textTheme.headline3?.copyWith(
+                  color: Colors.white, backgroundColor: Colors.amber)),
+        )
+      ]),
+    );
+  }
 }

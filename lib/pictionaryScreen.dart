@@ -2,7 +2,9 @@ import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:pictionary/wordsRepository.dart';
+import 'package:sliver_tools/sliver_tools.dart';
 import 'countDownWidget.dart';
 import 'gameword.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,59 +21,152 @@ class PictionaryScreen extends StatefulWidget {
 class _PictionaryScreen extends State<PictionaryScreen> {
   List<GameWords> words = [];
   List<GameWords> usedWords = [];
-
+  Widget? countDown;
   int _wordIndex = 0;
   bool isGameOver = false;
 
   @override
   void initState() {
     _loadWords();
-
+    setState(() {
+      countDown = CountdownWidget(onGameOver);
+    });
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    var screenHeight = MediaQuery.of(context).size.height;
+    return Scaffold(
         appBar: AppBar(
-          // toolbarHeight: 400,
-          centerTitle: true,
-          title: Global.enableTimer
-              ? Center(
-                  child: createCountDownWidget(context),
-                )
-              : SizedBox(
-                  height: 10,
-                  width: 80,
-                ),
+          title: Text("Pictionary"),
         ),
-        body: ListView.builder(
-            padding: EdgeInsets.all(20),
-            itemCount: usedWords.length,
-            itemBuilder: (_, int index) {
-              return Center(
-                child: GestureDetector(
-                  onTap: isGameOver ? () {} : getNewWord,
-                  child: Card(
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text(
-                        index == 0
-                            ? words[_wordIndex].word
-                            : usedWords[index].word,
-                        style: index == 0
-                            ? Theme.of(context).textTheme.headline1
-                            : Theme.of(context).textTheme.headline3,
-                      ),
-                    ),
-                  ),
+        // backgroundColor: Color.fromARGB(0xff, 0xff, 0xcd, 0x3c),
+        body: SafeArea(
+            //bottom, top, left and right are true by default so no need to add them
+            child: CustomScrollView(physics: BouncingScrollPhysics(), slivers: [
+          MultiSliver(
+            // defaults to false
+            pushPinnedChildren: false,
+            children: <Widget>[
+              SliverPinnedHeader(
+                  child: Center(
+                child: Container(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                    height: screenHeight / 4,
+                    child: Center(child: countDown)),
+              )),
+              SliverPinnedHeader(
+                  child: GestureDetector(
+                onTap: isGameOver ? () {} : getNewWord,
+                child: Container(
+                  color: Theme.of(context).scaffoldBackgroundColor,
+                  height: screenHeight / 3,
+                  child: isGameOver
+                      ? Center(
+                          child: Container(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text("Time's up!",
+                                    style:
+                                        Theme.of(context).textTheme.headline2),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                PictionaryScreen()),
+                                      );
+                                    },
+                                    child: Text("Start new game"))
+                              ],
+                            ),
+                          ),
+                        )
+                      : createCard(
+                          words[_wordIndex].word,
+                          Theme.of(context)
+                              .textTheme
+                              .headline2
+                              ?.apply(fontWeightDelta: 4)),
                 ),
-              );
-            }),
+              )),
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (BuildContext context, int index) {
+                    return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Center(
+                          child: createCard(usedWords[index].word,
+                              Theme.of(context).textTheme.headline4),
+                        ));
+                  },
+                  // 40 list items
+                  childCount: usedWords.length,
+                ),
+              ),
+            ],
+          )
+        ])));
+  }
+
+  onGameOver() {
+    setState(() {
+      if (!isGameOver) {
+        usedWords.add(words[_wordIndex]);
+        usedWords = usedWords.toList();
+      }
+      isGameOver = true;
+    });
+  }
+
+  Widget createCard(String word, TextStyle? style) {
+    return FittedBox(
+      fit: BoxFit.scaleDown,
+      child: Center(
+        child: Text(
+          word,
+          style: style,
+          textAlign: TextAlign.center,
+        ),
       ),
     );
   }
+
+  // Widget getOldList() {
+  //   return ListView.builder(
+  //       shrinkWrap: true,
+  //       itemCount: usedWords.length,
+  //       itemBuilder: (_, int index) {
+  //         return GestureDetector(
+  //           onTap: isGameOver ? () {} : getNewWord,
+  //           child: Center(
+  //             child: Card(
+  //               color: Theme.of(context).scaffoldBackgroundColor,
+  //               child: FittedBox(
+  //                 fit: BoxFit.scaleDown,
+  //                 child: Center(
+  //                   child: Text(
+  //                     index == 0
+  //                         ? words[_wordIndex].word
+  //                         : usedWords[index].word,
+  //                     style: index == 0
+  //                         ? Theme.of(context).textTheme.headline1
+  //                         : Theme.of(context).textTheme.headline4,
+  //                     textAlign: TextAlign.center,
+  //                   ),
+  //                 ),
+  //               ),
+  //             ),
+  //           ),
+  //         );
+  //       });
+  // }
 
   CountdownWidget createCountDownWidget(BuildContext context) {
     return CountdownWidget(() {
@@ -94,10 +189,9 @@ class _PictionaryScreen extends State<PictionaryScreen> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       setState(() {
+        usedWords = [words[_wordIndex]] + usedWords;
         _wordIndex = widget._random.nextInt(words.length);
       });
-
-      usedWords = [words[_wordIndex]] + usedWords;
     });
   }
 
@@ -111,7 +205,6 @@ class _PictionaryScreen extends State<PictionaryScreen> {
         words.addAll(categoryWords.map((w) => GameWords(w)));
         words = words.toList();
         _wordIndex = widget._random.nextInt(words.length);
-        usedWords = usedWords + [words[_wordIndex]];
       });
     });
   }
